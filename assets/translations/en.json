@@ -1,0 +1,20 @@
+
+{
+    "key_password": "Password",
+    "key_password_error": "Create a password",
+    "key_email": "Email",
+    "key_please_enter_valid_email": "Please Fill Email Address",
+    "key_name": " Name",
+    "key_first_name": "पहला नाम",
+    "key_enter_name": "कृपया हमें अपना नाम बताएं",
+    "key_next": "Next",
+    "key_sign_up" : "Sign Up",
+    "key_create_an_account" : "Create an account",
+    "key_phone_number":"Phone Number",
+    "key_phone_number_error":"Please tell us your phone number",
+    "key_profession" : "select a profession",
+    "key_registration_succesfull" : "Registration Sucessfull",
+    "key_already_have_account" : "Already Have An Account? Log In Here"
+    
+    
+  }

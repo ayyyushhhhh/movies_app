@@ -1,0 +1,19 @@
+
+{
+    "key_password": "पारण शब्द",
+    "key_password_error": "एक पासवर्ड बनाएं",
+    "key_email": "ईमेल",
+    "key_please_enter_valid_email": "अपना ईमेल पता भरें",
+    "key_name": " नाम",
+    "key_first_name": "पहला नाम",
+    "key_enter_name": "कृपया हमें अपना नाम बताएं",
+    "key_next": "आगामी",
+    "key_sign_up" : "साइन अप करें",
+    "key_create_an_account" : "खाता बनाएं",
+    "key_phone_number":"फ़ोन नंबर",
+    "key_phone_number_error":"कृपया हमें अपना फोन नंबर बताएं",
+    "key_profession" : "एक पेशा चुनें",
+    "key_registration_succesfull" : "सफल पंजीकरण",
+    "key_already_have_account" : "पहले से ही एक खाता है? यहां लॉगिन करें"
+  }
+  

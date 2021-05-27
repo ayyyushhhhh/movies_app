@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/movies_model.dart';
 
-class MovieContianer extends StatelessWidget {
+class MovieContianer extends StatefulWidget {
   final Result result;
 
   const MovieContianer({Key? key, required this.result}) : super(key: key);
 
+  @override
+  _MovieContianerState createState() => _MovieContianerState();
+}
+
+class _MovieContianerState extends State<MovieContianer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,11 +28,22 @@ class MovieContianer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.expand_less,
+                    GestureDetector(
+                      onTap: () {
+                        widget.result.voting = widget.result.voting! + 1;
+                        setState(() {});
+                      },
+                      child: Icon(
+                        Icons.expand_less,
+                      ),
                     ),
-                    Text(result.voting.toString()),
-                    Icon(Icons.expand_more),
+                    Text(widget.result.voting.toString()),
+                    GestureDetector(
+                        onTap: () {
+                          widget.result.voting = widget.result.voting! - 1;
+                          setState(() {});
+                        },
+                        child: Icon(Icons.expand_more)),
                     Text("Votes")
                   ],
                 ),
@@ -42,7 +58,7 @@ class MovieContianer extends StatelessWidget {
                       BoxDecoration(borderRadius: BorderRadius.circular(20)),
                   child: FittedBox(
                       fit: BoxFit.cover,
-                      child: Image.network(result.poster.toString())),
+                      child: Image.network(widget.result.poster.toString())),
                 ),
                 SizedBox(
                   width: 20,
@@ -53,7 +69,7 @@ class MovieContianer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        result.title.toString(),
+                        widget.result.title.toString(),
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 20,
@@ -73,7 +89,7 @@ class MovieContianer extends StatelessWidget {
                                 fontWeight: FontWeight.w700),
                           ),
                           Text(
-                            result.genre.toString(),
+                            widget.result.genre.toString(),
                             overflow: TextOverflow.ellipsis,
                           )
                         ],
@@ -93,7 +109,7 @@ class MovieContianer extends StatelessWidget {
                           Expanded(
                             child: Container(
                               child: Text(
-                                result.director![0].toString(),
+                                widget.result.director![0].toString(),
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
@@ -116,7 +132,7 @@ class MovieContianer extends StatelessWidget {
                             Expanded(
                               child: Container(
                                 child: Text(
-                                  result.stars![0].toString(),
+                                  widget.result.stars![0].toString(),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -132,9 +148,9 @@ class MovieContianer extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              result.runTime == null
+                              widget.result.runTime == null
                                   ? "min"
-                                  : "${result.runTime.toString()} min",
+                                  : "${widget.result.runTime.toString()} min",
                               style: TextStyle(fontSize: 8),
                             ),
                             VerticalDivider(
@@ -142,13 +158,13 @@ class MovieContianer extends StatelessWidget {
                               width: 5,
                               thickness: 2,
                             ),
-                            Text(result.language.toString(),
+                            Text(widget.result.language.toString(),
                                 style: TextStyle(fontSize: 8)),
                             VerticalDivider(
                               color: Colors.black,
                               width: 5,
                             ),
-                            Text(result.releasedDate.toString(),
+                            Text(widget.result.releasedDate.toString(),
                                 style: TextStyle(fontSize: 8))
                           ],
                         ),
@@ -160,7 +176,7 @@ class MovieContianer extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "${result.pageViews.toString()} views ",
+                            "${widget.result.pageViews.toString()} views ",
                             style: TextStyle(fontSize: 10, color: Colors.blue),
                           ),
                           VerticalDivider(
@@ -168,7 +184,7 @@ class MovieContianer extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                              "Voted by ${result.totalVoted.toString()} people",
+                              "Voted by ${widget.result.totalVoted.toString()} people",
                               style:
                                   TextStyle(fontSize: 10, color: Colors.blue))
                         ],
